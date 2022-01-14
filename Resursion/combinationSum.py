@@ -1,4 +1,4 @@
-#Time complexity - O(n^2)
+#Time complexity - O(n + k)! n - size of candidates k max repeated time for each candidate
 def combinationSum(candidates, target):
     result = []
     combinations = []
