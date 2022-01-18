@@ -10,7 +10,7 @@ class Solution:
         while list1 or list2:
             if list1 and not list2:
                 next_val = list1.val
-                list1 = list1.next_val
+                list1 = list1.next
             elif list2 and not list1 :
                 next_val = list2.val
                 list2 = list2.next
