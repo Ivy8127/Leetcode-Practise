@@ -7,24 +7,20 @@
 # Example : 1 5 8 4 7 6 5 3 1  becomes 1 5 8 5 7 6 4 3 1 
 # 4. Reverse from d + 1 to the end (from index 4 to 8)
 # Example : 1 5 8 4 1 3 4 6 7 -> this is the next permutation
+def nexp(nums):
+    inv = len(nums) -2
+    while (inv >= 0 and nums[inv] >= nums[inv+1]):
+        inv -=1
+    if inv < 0 :
+        return nums.sort()
+        
+    for i in reversed(range(inv,len(nums))):
+        if nums[i] > nums[inv]:
+            #swap
+            nums[i] , nums[inv]= nums[inv], nums[i]
+            break
+    #reverse the array from the inverse
+    nums[inv+1: ] = nums[inv+1:][::-1]
+    return nums
 
-def nextPermutation(nums):
-    """
-    Do not return anything, modify nums in-place instead.
-    """
-    for i in range(len(nums)-1, 0, -1): #loops from right to left
-        if nums[i] > nums[i-1]: # finding the first decreasing number from right to left 
-            target = nums[i-1] #get 4 
-            swap = i-1 # swap = 3
-            while swap<len(nums)-1:
-                if (nums[swap+1]) <= target:
-                    break
-                swap += 1
-            nums[swap], nums[i-1] = nums[i-1], nums[swap] #swap the values
-            nums[i:] = nums[i:][::-1] #reverse the list from i to the end 
-            return
-    
-    nums.reverse()
-    return
-
-print(nextPermutation([1,2,3]))    
+print(nexp([3,2,1]))              
