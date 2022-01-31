@@ -4,7 +4,7 @@ def containsDuplicate(nums):
     if len(num_S) == len(nums):
         return False
     return True
-
+    
 print(containsDuplicate([1,2,3,4,1]))   
 #or
 def cd(nums):
