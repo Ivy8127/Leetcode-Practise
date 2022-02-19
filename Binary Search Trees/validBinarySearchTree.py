@@ -4,6 +4,7 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
+#Using dfs to solve this, basically a recursion problem
 class Solution:
     def isValidBST(self, root: Optional[TreeNode]) -> bool:
         #using left and right boundaries to determine a valid bst
