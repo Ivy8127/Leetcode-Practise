@@ -18,4 +18,24 @@ def merge_intervals(arr):
             res.append([arr[i][0],arr[i][1]]) 
     return res           
 
-print(merge_intervals([[1,3],[8,10],[15,18],[2,6]]))           
+print(merge_intervals([[1,3],[8,10],[15,18],[2,6]]))   
+
+
+
+def merge(intervals):
+    intervals.sort()
+    res = [intervals[0]]
+    for i in range(1,len(intervals)):
+        end = res[-1][1]
+        start = intervals[i][0]
+        #compare start and end
+        
+        if start <= end: #they are overlappping
+            #merge them
+            res[-1][1] = max(end, intervals[i][1])
+            
+        else:
+            res.append([start, intervals[i][1]])
+            
+    return res        
+                
