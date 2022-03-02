@@ -4,6 +4,7 @@
 #this means that our min value is on the right, shift left pointer to begin
 #binary search there, otherwise,shift right pointer to mid to begin binary search 
 #on the left subarray
+#hmm.. did this question today and i don't get it. Will have to look at it tomorrow again
 def findMin( nums):
     left = 0
     right = len(nums)-1
