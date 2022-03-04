@@ -1,12 +1,4 @@
 #Time complexity 0(n)
-def isMonotonic(arr):
-  if arr == sorted(arr) or arr==sorted(arr, reverse= True):
-    return True
-  else:
-    return False  
-print(isMonotonic([6,5,5,4]))          
-
-
 def isMonotonic2(arr):
   decreasing = True
   increasing = True
@@ -16,5 +8,13 @@ def isMonotonic2(arr):
     elif arr[i-1] > arr[i]:#eg 4 3 => decreasing
       increasing = False
   return increasing or decreasing    
-print(isMonotonic2([6,5,5,4]))  
+print(isMonotonic2([6,5,5,4])) 
+
+
+class Solution:
+    def isMonotonic(self, nums: List[int]) -> bool:
+        if sorted(nums) == nums or sorted(nums, reverse=True)== nums:
+            return True
+        return False
+        
         
