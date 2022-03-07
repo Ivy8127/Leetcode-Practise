@@ -27,4 +27,16 @@ def lps(s):
             left -= 1
             right += 1
     return res              
-print(lps('cbbd'))    
+print(lps('cbbd')) 
+
+#O(n^3) sln 
+def lpsbrute(s):
+    output = ''
+    for i in range(len(s)):
+        for j in range(i,len(s)):
+            pl = s[i:j]
+            if pl == pl[::-1] and len(pl) > len(output):
+                #reversing the subsring is  n operation => o(N^2).N => O(N^3)
+                output = pl
+    return output
+print(lpsbrute('babad'))                
