@@ -12,4 +12,4 @@ def lengthOfLongestSubstring( s):
         charSet.add(s[right])
         res = max(res, len(charSet))
     return res    
-print(lengthOfLongestSubstring("pwwkew")) #3        
+print(lengthOfLongestSubstring("pwwkew")) #3  
