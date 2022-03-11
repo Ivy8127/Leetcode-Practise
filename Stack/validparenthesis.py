@@ -21,7 +21,7 @@ def validParenthesis(s):
     else:
         return True 
 
-print(validParenthesis("(]"))                             
+print(validParenthesis( "{ ( [] ) }"))                             
                
 
 #Using a hashmap 
@@ -39,7 +39,7 @@ def validP(s):
                 return False
     return len(stack) == 0
 
-print(validP("[)"))
+print(validP("{ ( [] ) }"))
 
 
 
