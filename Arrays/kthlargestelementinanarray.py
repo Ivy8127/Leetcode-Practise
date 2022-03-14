@@ -20,4 +20,7 @@ def findKthLargest(nums, k):
         nums = sorted(nums, reverse=True)
         return nums[k-1]
 
-print(findKthLargest([3,2,1,5,6,4],2))        
+print(findKthLargest([3,2,1,5,6,4],2)) 
+
+
+#using the quick select method -most optimal sln , linear time complexity
