@@ -30,7 +30,6 @@ class Solution:
                     queue.append([r,c])   
                     fresh -=1
             time+=1
-        return time if fresh == 0 else -1               
-                    
-                
-        
+        return time if fresh == 0 else -1
+
+
