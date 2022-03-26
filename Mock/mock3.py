@@ -23,8 +23,8 @@ def lowestCommonAncestor(root,p,q):
         ptemp = p.parent
     while q.parent != None:
         stack.append(q.parent)
-        qtemp = q.parent               
-        
+        qtemp = q.parent 
+             
             
 
 
