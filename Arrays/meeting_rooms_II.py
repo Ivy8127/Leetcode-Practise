@@ -23,10 +23,10 @@ class Sln:
                 e +=1
             max_count = max(count, max_count)
         return max_count             
-print(min_meeting_rooms([[7,10],[2,4]])) #1 meeting room      
+""" print(min_meeting_rooms([[7,10],[2,4]])) #1 meeting room      
 print(min_meeting_rooms([[0,30],[5,10],[15,20]]))   #2 meeting rooms         
 print(min_meeting_rooms([[0,30],[5,10],[10,15]]))   #2 meeting rooms  
-
+ """
 
 #[[0,30],[5,10],15,20]  
 
@@ -52,6 +52,26 @@ def minMeetingRooms(intervals):
             roomCount-=1
         maxRoomCount = max(maxRoomCount, roomCount)
     return maxRoomCount            
-print(minMeetingRooms([[7,10],[2,4]]))
-print(minMeetingRooms([[0,30],[5,10],[15,20]]))
-   
+""" print(minMeetingRooms([[7,10],[2,4]]))
+print(minMeetingRooms([[0,30],[5,10],[15,20]])) """
+
+
+
+def minMeetingRooms2(intervals):
+    start = sorted(i[0] for i in intervals)
+    end = sorted (i[1] for i in intervals)
+    s,e = 0,0  
+    count = 0 
+    maxcount =0    
+    while  s < len(start):
+        if start[s] < end[s]:
+            count +=1
+            s+=1
+        else:
+            e+=1
+            count -=1
+        maxcount = max(count,maxcount)        
+                
+    return maxcount   
+
+print(minMeetingRooms2([[7,10],[2,4]]))    
