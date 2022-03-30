@@ -62,7 +62,40 @@ def countC(edges, n):
     for node1, node2 in edges:
         res -= union(node1,node2)
     return res
-print(countC([[0,1],[1,2],[3,4]],5))                         
+print(countC([[0,1],[1,2],[3,4]],5))  
+
+
+def countcomps(edges,n):
+    par = [i for i in range(n)]
+    rank = [1] * n
+
+    def find(node):
+        while node != par[node]:
+            par[node] = par[par[node]] #path compression
+            node = par[node]
+        return node
+
+    def union(node1,node2):
+        x = find(node1)
+        y = find(node2)
+        if x == y:
+            return 0
+        else:
+            if rank[x] > rank[y]:
+                par[y] = x
+                rank[x] += rank[y]
+            else:
+                par[x] = y
+                rank[y] += rank[x]
+        return 1 
+    res = n
+    for n1,n2 in edges:
+        res -= union(n1,n2) 
+
+    return res
+print(countcomps([[0,1],[1,2],[3,4]],5))                                 
+
+
 
 
 
