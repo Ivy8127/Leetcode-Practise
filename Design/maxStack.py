@@ -39,8 +39,8 @@ class MaxStack:
         if len(self.stack): #if stack is not empty
             self.maxStack[-1] =self.stack[-1]
             #need 2 understand what this 2 lines of code are trying to achieve
-            for index in range(len(self.stackList)-2, -1, -1):
-                self.maxStack[index] = max(self.maxStack[index+1], self.stackList[index])
+            for index in range(len(self.stack)-2, -1, -1):
+                self.maxStack[index] = max(self.maxStack[index+1], self.stack[index])
         return max_element    
 
 
