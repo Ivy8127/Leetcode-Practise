@@ -74,4 +74,24 @@ def minMeetingRooms2(intervals):
                 
     return maxcount   
 
-print(minMeetingRooms2([[7,10],[2,4]]))    
+#print(minMeetingRooms2([[7,10],[2,4]]))
+
+
+def minMeetingRooms3(intervals):
+    st = sorted(i[0] for i in intervals)
+    en = sorted(i[1] for i in intervals) 
+        
+    # st = [0 ,5,15]
+    #en = [10,20,30]
+    rooms ,maxroom =0, 0
+    s,e = 0,0
+    while s < len(st):
+        if st[s] < en[e]:
+            s+=1
+            rooms +=1
+        else:
+            rooms-=1
+            e +=1
+        maxroom = max(maxroom, rooms)        
+    return maxroom
+print(minMeetingRooms3([[7,10],[2,4]]))    
