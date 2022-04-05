@@ -93,7 +93,34 @@ def countcomps(edges,n):
         res -= union(n1,n2) 
 
     return res
-print(countcomps([[0,1],[1,2],[3,4]],5))                                 
+#print(countcomps([[0,1],[1,2],[3,4]],5)) 
+def countcompz(n, edges):
+    par = [i for i in range(n)]
+    rank = [1]* n
+    
+    def find(node):
+        res = node
+        while res != par[res]:
+            res = par[res]
+        return res
+    
+    def union(n1,n2):
+        x,y = find(n1), find(n2)
+        if x == y:
+            return 0
+        else:
+            if rank[x] > rank[y]:
+                par[y] =x
+                rank[x] += rank[y]
+            else:
+                par[x] =y
+                rank[y] += rank[x]
+        return 1
+    count = 5
+    for n1, n2 in edges:
+        count -= union(n1,n2)
+    return count  
+print(countcompz(5,[[0,1],[1,2],[3,4]]))                                  
 
 
 
