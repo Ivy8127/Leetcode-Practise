@@ -33,3 +33,27 @@ def search(nums, target):
 
 print(search([4,5,6,7,0,1,2],0))    #returns 4 bc 0 is in index 4
 print(search([4,5,6,7,0,1,2],3))    #returns -1 bc 3 is not in the list
+
+def search(nums, target):
+    #binary search
+    left = 0
+    right = len(nums)-1
+    
+    while left <= right:
+        mid = (left + right) // 2
+        if target == nums[mid]:
+            return mid
+        #left sorted array
+        if nums[mid] >= nums[left]:
+            if nums[mid] < target or target < nums[left]:
+                left = mid + 1
+            else:
+                right = mid -1
+        #Right sorted array    
+        else:
+            if nums[mid] > target or target > nums[right]:
+                
+                right = mid -1
+            else:
+                left = mid + 1
+    return -1  
