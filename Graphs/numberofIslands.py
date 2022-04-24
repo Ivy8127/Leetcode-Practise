@@ -24,4 +24,29 @@ class Solution:
                 if grid[r][c] == "1" and (r,c) not in visited:
                     bfs(r,c)
                     islands+=1
-        return islands            
+        return islands 
+
+
+class Solution:
+    def numIslands(self, grid: List[List[str]]) -> int:
+        islands = 0
+        rows= len(grid) 
+        cols =len(grid[0])
+        visited = set()
+        def dfs(i,j):
+            if (i,j) not in visited and i in range(rows) and j in range(cols) and grid[i][j] =="1":
+                visited.add((i,j))
+            else:
+                return
+            neighbors = [[0, 1], [1, 0], [0, -1], [-1, 0]]
+            for dr, dc in neighbors:
+                dfs(dr+i, dc + j)
+            
+        for r in range(rows):
+            for c in range(cols):
+                if grid[r][c] == "0":
+                    continue
+                if (r,c) not in visited:
+                    islands +=1
+                    dfs(r,c)
+        return islands                               
