@@ -16,3 +16,29 @@ class Solution:
             for c in range(cols):
                 if dfs(r,c,0) : return True
         return False
+
+class Solution:
+    def exist(self, board: List[List[str]], word: str) -> bool:
+        visited = set()
+        rows = len(board)
+        cols = len(board[0])     
+        def dfs(i,j,idx):
+            if idx == len(word):
+                return True
+            
+            if ((i,j) in visited or i < 0 or i >= rows or j < 0 or j >= cols or board[i][j] != word[idx]):
+                return False
+            
+            visited.add((i,j))
+            directions = [[1,0],[0,1],[-1,0],[0,-1]]
+            for dr,dc in directions:
+                if dfs(dr+i, dc + j, idx+1):
+                    return True
+            visited.remove((i,j))    
+            return False   
+        for r in range(rows):
+            for c in range(cols):
+                if dfs(r,c,0):
+                    return True
+        return False            
+                
