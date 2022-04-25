@@ -9,4 +9,5 @@ def selection_sort(arr):
         arr[i], arr[min_idx] = arr[min_idx], arr[i] 
 data = [64,25,12,22,11]          
 print(selection_sort(data))
-print(data)            
+print(data) 
+#11 12 22 25 64         
