@@ -7,4 +7,5 @@ class Solution:
             if v > (len(nums)//2):
                 return k
             
-#can i do this in linear time and constant space?        
+#can i do this in linear time and constant space?
+#well ...yes , boore's voting algorithm that i haven't learned yet        
